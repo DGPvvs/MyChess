@@ -2,11 +2,19 @@
 {
     using Chess.Figures.Contracts;
 
+    using static Chess.Common.Constants.GlobalConstants.BoardConstants;
+
+
     public class Board
     {
-        private IFigure[,] board;
+        private readonly IFigure[,] board;
         private int totalRows;
         private int totalCols;
+
+        public Board() : this(StandartRows, StandartCols)
+        {
+
+        }
 
         public Board(int rows, int cols)
         {
