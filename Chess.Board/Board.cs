@@ -1,9 +1,10 @@
 ﻿namespace Chess.Board
 {
+    using Chess.Common.CommonClasses;
     using Chess.Figures.Contracts;
 
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
-
+    using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
 
     public class Board
     {
@@ -18,8 +19,8 @@
 
         public Board(int rows, int cols)
         {
-            this.totalRows = rows;
-            this.totalCols = cols;
+            this.TotalRows = rows;
+            this.TotalCols = cols;
             this.board = new IFigure[totalRows, totalCols];
         }
 
@@ -33,6 +34,49 @@
         {
             get => this.TotalCols;
             init => this.totalCols = value;
+        }
+
+        public void AddFigure(IFigure figure, Position position)
+        {
+            ObjectValidator.CheckIfObjectIsNull(figure, NullFigureErrorMessage);
+
+             Point  point = this.CalculatePosition(position);
+
+            this.board[point.Row, point.Col] = figure;
+        }
+
+        public void RemoveFigure(IFigure figure, Position position)
+        {
+            ObjectValidator.CheckIfObjectIsNull(figure, NullFigureErrorMessage);
+
+            Point point = this.CalculatePosition(position);
+
+            
+        }
+
+        private Point CalculatePosition(Position position)
+        {
+            int returnRow = this.TotalRows - position.Row;
+
+            char col = char.Parse(position.Col.ToString().ToLower());
+            int returnCol = col - 'a';
+
+            return new Point(returnRow, returnCol);
+        }
+
+        private void PositionIsValid(Position position)
+        {
+            if (position.Row < 1 || position.Row > this.TotalRows )
+            {
+                throw new IndexOutOfRangeException(OutOfRangeRow);
+            }
+
+            char col = char.Parse(position.Col.ToString().ToLower());
+
+            if (col < 'a' || col > this.TotalCols)
+            {
+                throw new IndexOutOfRangeException(OutOfRangeCol);
+            }
         }
     }
 
