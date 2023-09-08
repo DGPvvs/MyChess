@@ -39,19 +39,20 @@
         public void AddFigure(IFigure figure, Position position)
         {
             ObjectValidator.CheckIfObjectIsNull(figure, NullFigureErrorMessage);
+            this.PositionIsValid(position);
 
-             Point  point = this.CalculatePosition(position);
+            Point  point = this.CalculatePosition(position);
 
             this.board[point.Row, point.Col] = figure;
         }
 
-        public void RemoveFigure(IFigure figure, Position position)
+        public void RemoveFigure(Position position)
         {
-            ObjectValidator.CheckIfObjectIsNull(figure, NullFigureErrorMessage);
+            this.PositionIsValid(position);
 
             Point point = this.CalculatePosition(position);
 
-            
+            this.board[point.Row, point.Col] = null;
         }
 
         private Point CalculatePosition(Position position)
@@ -74,7 +75,7 @@
 
             char col = char.Parse(position.Col.ToString().ToLower());
 
-            if (col < 'a' || col > this.TotalCols)
+            if (col < 'a' || col > this.TotalCols - 'a')
             {
                 throw new IndexOutOfRangeException(OutOfRangeCol);
             }
