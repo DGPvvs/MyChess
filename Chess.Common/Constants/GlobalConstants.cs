@@ -14,6 +14,8 @@
             public const string NullFigureErrorMessage = "Фигурата не може да е null";
             public const string OutOfRangeRow = "Избраният ред е извън дъската!";
             public const string OutOfRangeCol = "Избраната колона е извън дъската!";
+            public const string PlayersAlredyHasThisFigureMessage = "Играчът вече притежава тази фигура!";
+            public const string PlayersNotHasThisFigureMessage = "Играчът не притежава тази фигура!";            
         }
     }
 }
