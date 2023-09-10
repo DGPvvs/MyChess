@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chess.Common\Chess.Common.csproj" />
+    <ProjectReference Include="..\Chess.Players\Chess.Players.csproj" />
+  </ItemGroup>
+
 </Project>

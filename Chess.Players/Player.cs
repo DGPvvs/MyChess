@@ -3,10 +3,10 @@
     using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
     using Chess.Figures.Contracts;
-
+    using Chess.Players.Contracts;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
 
-    public class Player
+    public class Player : IPlayer
     {
         private readonly IList<IFigure> figures;
         private readonly ChessColor color;
