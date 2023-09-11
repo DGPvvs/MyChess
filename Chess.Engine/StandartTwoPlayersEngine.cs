@@ -11,8 +11,9 @@
 
         public IEnumerable<IPlayer> Players => new List<IPlayer>(this.players);
 
-        public void Initialize()
-        {            
+        public void Initialize(IGameInitializationStrategy gameInitializationStrategy)
+        {
+            //gameInitializationStrategy.Initialize(this.Players, this.Board);
             throw new NotImplementedException();
         }
 

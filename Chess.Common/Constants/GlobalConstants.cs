@@ -15,7 +15,9 @@
             public const string OutOfRangeRow = "Избраният ред е извън дъската!";
             public const string OutOfRangeCol = "Избраната колона е извън дъската!";
             public const string PlayersAlredyHasThisFigureMessage = "Играчът вече притежава тази фигура!";
-            public const string PlayersNotHasThisFigureMessage = "Играчът не притежава тази фигура!";            
+            public const string PlayersNotHasThisFigureMessage = "Играчът не притежава тази фигура!";
+            public const string StandartSrategyMustTwoPlayers = "Стандартната игра трябва да има двама играчи!";
+            public const string StandartSrategyMustEightRowsAndCols = "Стандартната игра трябва да има осем реда и одем колони!";
         }
     }
 }

@@ -7,7 +7,7 @@
     {
         public IEnumerable<IPlayer> Players { get; }
 
-        public void Initialize();
+        public void Initialize(IGameInitializationStrategy gameInitializationStrategy);
 
         public void Start();
 
