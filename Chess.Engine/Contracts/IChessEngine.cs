@@ -5,12 +5,12 @@
 
     public interface IChessEngine
     {
-        public IEnumerable<IPlayer> MyProperty { get; }
+        public IEnumerable<IPlayer> Players { get; }
 
         public void Initialize();
 
         public void Start();
 
-        public WhinResult WinningConditions();
+        public WinResult WinningConditions();
     }
 }

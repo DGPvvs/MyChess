@@ -1,12 +1,13 @@
 ﻿namespace Chess.Board
 {
+    using Chess.Board.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Figures.Contracts;
 
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
 
-    public class Board
+    public class Board : IBoard
     {
         private readonly IFigure[,] board;
         private int totalRows;
@@ -21,7 +22,7 @@
         {
             this.TotalRows = rows;
             this.TotalCols = cols;
-            this.board = new IFigure[totalRows, totalCols];
+            this.board = new IFigure[this.TotalRows, this.TotalCols];
         }
 
         public int TotalRows
@@ -32,7 +33,7 @@
 
         public int TotalCols
         {
-            get => this.TotalCols;
+            get => this.totalCols;
             init => this.totalCols = value;
         }
 

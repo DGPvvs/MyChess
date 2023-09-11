@@ -1,7 +1,7 @@
 ﻿namespace Chess.Common.Enums
 {
     [Flags]
-    public enum WhinResult
+    public enum WinResult
     {
         None = 0x00000000,
         Pat = 0x00000001,

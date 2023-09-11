@@ -5,6 +5,8 @@
 
     public interface IPlayer
     {
+        public string Name { get; }
+
         public ChessColor Color { get; }
 
         public IList<IFigure> Figures { get; }

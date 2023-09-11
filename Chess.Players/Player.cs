@@ -10,14 +10,16 @@
     {
         private readonly IList<IFigure> figures;
         private readonly ChessColor color;
+        private readonly string name;
 
-        public Player(IList<IFigure> figures, ChessColor color)
+        public Player(IList<IFigure> figures, ChessColor color, string name)
         {
             this.figures = figures;
             this.Color = color;
+            this.name = name;
         }
 
-        public Player(ChessColor color) : this(new List<IFigure>(), color)
+        public Player(ChessColor color, string name) : this(new List<IFigure>(), color, name)
         {            
         }
 
@@ -28,6 +30,8 @@
         }
 
         public IList<IFigure> Figures => new List<IFigure>(this.figures);
+
+        public string Name => this.name;
 
         public void AddFigure(IFigure figure)
         {

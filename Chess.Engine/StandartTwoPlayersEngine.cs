@@ -7,10 +7,12 @@
 
     public class StandartTwoPlayersEngine : IChessEngine
     {
-        public IEnumerable<IPlayer> MyProperty => throw new NotImplementedException();
+        private readonly IEnumerable<IPlayer> players;
+
+        public IEnumerable<IPlayer> Players => new List<IPlayer>(this.players);
 
         public void Initialize()
-        {
+        {            
             throw new NotImplementedException();
         }
 
@@ -19,7 +21,7 @@
             throw new NotImplementedException();
         }
 
-        public WhinResult WinningConditions()
+        public WinResult WinningConditions()
         {
             throw new NotImplementedException();
         }
