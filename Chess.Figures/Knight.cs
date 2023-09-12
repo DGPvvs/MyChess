@@ -3,10 +3,12 @@
     using Chess.Common.Enums;
     using Chess.Figures.Contracts;
 
-    public class Pawn : BaseFigure
+    public class Knight : BaseFigure
     {
-        public Pawn(ChessColor color) : base(color)
+        public Knight(ChessColor color) : base(color) 
         {
         }
+
+        
     }
 }

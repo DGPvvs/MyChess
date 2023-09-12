@@ -3,9 +3,9 @@
     using Chess.Common.Enums;
     using Chess.Figures.Contracts;
 
-    public class Pawn : BaseFigure
+    public class Rook : BaseFigure
     {
-        public Pawn(ChessColor color) : base(color)
+        public Rook(ChessColor color) : base(color)
         {
         }
     }

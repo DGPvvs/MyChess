@@ -12,17 +12,23 @@
     {
         public void Initialize(ICollection<IPlayer> players, IBoard board)
         {
+            this.ValidateStrategy(players, board);
+            
+
+
+        }
+
+        private void ValidateStrategy(ICollection<IPlayer> players, IBoard board)
+        {
             if (!players.Count.Equals(2))
             {
                 throw new InvalidOperationException(StandartSrategyMustTwoPlayers);
             }
 
-            if (!board.TotalRows.Equals(StandartRows) && !board.TotalCols.Equals(StandartCols))
+            if (!board.TotalRows.Equals(StandartRows) || !board.TotalCols.Equals(StandartCols))
             {
                 throw new InvalidOperationException(StandartSrategyMustEightRowsAndCols);
             }
-
-
         }
     }
 }
