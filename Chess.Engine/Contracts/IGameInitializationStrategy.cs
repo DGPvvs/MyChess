@@ -5,6 +5,6 @@
 
     public interface IGameInitializationStrategy
     {
-        public void Initialize(ICollection<IPlayer> players, IBoard board);
+        public void Initialize(IList<IPlayer> players, IBoard board);
     }
 }

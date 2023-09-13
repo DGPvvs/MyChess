@@ -19,5 +19,10 @@
             public const string StandartSrategyMustTwoPlayers = "Стандартната игра трябва да има двама играчи!";
             public const string StandartSrategyMustEightRowsAndCols = "Стандартната игра трябва да има осем реда и одем колони!";
         }
+
+        public static class Fen
+        {
+            public const string StandartFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+        }
     }
 }

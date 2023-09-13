@@ -44,6 +44,11 @@
 
             Point  point = this.CalculatePosition(position);
 
+            this.AddFigure(figure, point);
+        }
+
+        public void AddFigure(IFigure figure, Point point)
+        {
             this.board[point.Row, point.Col] = figure;
         }
 

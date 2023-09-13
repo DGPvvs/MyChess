@@ -11,6 +11,8 @@
 
         public void AddFigure(IFigure figure, Position position);
 
+        public void AddFigure(IFigure figure, Point point);
+
         public void RemoveFigure(Position position);
     }
 }
