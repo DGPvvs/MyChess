@@ -61,28 +61,48 @@
                         switch (fig)
                         {
                             case FigureEnum.WhiteKing:
+                                figure = new King(ChessColor.While);
+                                firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.WhiteQueen:
+                                figure = new Queen(ChessColor.While);
+                                firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.WhiteRook:
+                                figure = new Rook(ChessColor.While);
+                                firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.WhiteBishop:
+                                figure = new Bishop(ChessColor.While);
+                                firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.WhiteKnight:
+                                figure = new Knight(ChessColor.While);
+                                firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.WhitePawn:
                                 figure = new Pawn(ChessColor.While);
                                 firstPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackKing:
+                                figure = new King(ChessColor.Black);
+                                secondPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackQueen:
+                                figure = new Queen(ChessColor.Black);
+                                secondPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackRook:
+                                figure = new Rook(ChessColor.Black);
+                                secondPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackBishop:
+                                figure = new Bishop(ChessColor.Black);
+                                secondPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackKnight:
+                                figure = new Knight(ChessColor.Black);
+                                secondPlayer.AddFigure(figure);
                                 break;
                             case FigureEnum.BlackPawn:
                                 figure = new Pawn(ChessColor.Black);
@@ -93,10 +113,7 @@
                         }
 
                         board.AddFigure(figure, point);
-                    }
-
-
-                    
+                    }                    
                 }
             }
         }

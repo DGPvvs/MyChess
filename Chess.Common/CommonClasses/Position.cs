@@ -20,7 +20,7 @@
         public char Col
         {
             get => this.col;
-            init => this.row = value;
+            init => this.col = value;
         }
     }
 }
