@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Chess.Board\Chess.Board.csproj" />
-    <ProjectReference Include="..\Chess.Common\Chess.Common.csproj" />
-    <ProjectReference Include="..\Chess.InputProviders\Chess.InputProviders.csproj" />
     <ProjectReference Include="..\Chess.Players\Chess.Players.csproj" />
-    <ProjectReference Include="..\Chess.Renderers\Chess.Renderers.csproj" />
   </ItemGroup>
 
 </Project>
