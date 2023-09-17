@@ -6,25 +6,34 @@
     using Chess.Players.Contracts;
     using Chess.Renderers.Contracts;
     using System.Collections.Generic;
+    using Chess.Board;
+
+    using static Chess.Common.Constants.GlobalConstants.BoardConstants;
+    using Chess.Board.Contracts;
 
     public class StandartTwoPlayersEngine : IChessEngine
-    {
-        private readonly IEnumerable<IPlayer> players;
+    {        
+        private IList<IPlayer> players;
         private readonly IRenderer renderer;
-        private readonly IInputProvider inputProvider1;
+        private readonly IInputProvider inputProvider;
+        private readonly IBoard board;
 
         public StandartTwoPlayersEngine(IRenderer renderer, IInputProvider inputProvider)
         {
             this.renderer = renderer;
-            this.inputProvider1 = inputProvider;
+            this.inputProvider = inputProvider;
+            this.board = new Board();
+            this.players = new List<IPlayer>();
         }
 
-        public IEnumerable<IPlayer> Players => new List<IPlayer>(this.players);
+        public IList<IPlayer> Players => new List<IPlayer>(this.players);
 
         public void Initialize(IGameInitializationStrategy gameInitializationStrategy)
         {
-            //gameInitializationStrategy.Initialize(this.Players, this.Board);
-            throw new NotImplementedException();
+            this.players = this.inputProvider.GetPlayers(StandartPlayersNum);
+
+            gameInitializationStrategy.Initialize(this.players, this.board);
+            this.renderer.RenderBoard(this.board);
         }
 
         public void Start()

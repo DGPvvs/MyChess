@@ -4,6 +4,7 @@
     {
         public static class BoardConstants
         {
+            public const int StandartPlayersNum = 2;
             public const int StandartRows = 8;
             public const int StandartCols = 8;
         }

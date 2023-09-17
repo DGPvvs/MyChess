@@ -120,7 +120,7 @@
 
         private void ValidateStrategy(ICollection<IPlayer> players, IBoard board)
         {
-            if (!players.Count.Equals(2))
+            if (!players.Count.Equals(StandartPlayersNum))
             {
                 throw new InvalidOperationException(StandartSrategyMustTwoPlayers);
             }

@@ -1,5 +1,10 @@
 ﻿namespace Chess
 {
+    using Chess.Engine;
+    using Chess.Engine.Contracts;
+    using Chess.Engine.Initializations;
+    using Chess.InputProviders;
+    using Chess.InputProviders.Contracts;
     using Chess.Renderers;
     using Chess.Renderers.Contracts;
 
@@ -7,9 +12,7 @@
     {
         public static void Main(string[] args)
         {
-            IRenderer renderer = new ConsoleRenderer();
-            renderer.RenderMainMenu();
-            Console.WriteLine("Hello, World!");
+            ChessFasade.Start();
         }
     }
 }

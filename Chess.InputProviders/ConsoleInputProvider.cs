@@ -8,7 +8,7 @@
 
     public class ConsoleInputProvider : IInputProvider
     {
-        public ICollection<IPlayer> GetPlayers(int numberOfPlayers)
+        public IList<IPlayer> GetPlayers(int numberOfPlayers)
         {
             List<IPlayer> players = new List<IPlayer>();
 
@@ -16,7 +16,7 @@
             {
                 Console.Clear();
                 ConsoleHelpers.SetCursorAtCenter(0);
-                Console.Write(string.Format("Въведете името на {0} играч", i));
+                Console.Write(string.Format("Въведете името на {0} играч ", i));
                 string name = Console.ReadLine();
 
                 Player player = new Player((ChessColor)(i - 1), name);
