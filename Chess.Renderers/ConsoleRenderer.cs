@@ -10,6 +10,9 @@
         private const int CharactersPerRowBoardSquare = 9;
         private const int CharactersPerColBoardSquare = 9;
 
+        private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.DarkCyan;
+        private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
+
         private const string Logo = "ШАХ";
 
         public void RenderBoard(IBoard board)
@@ -24,6 +27,7 @@
             Point currentPrint = new Point(startPrint.Row, startPrint.Col);
 
             Console.BackgroundColor = ConsoleColor.Blue;
+            int counter = 0;
 
             for (int top = 0; top < board.TotalRows; top++)
             {
@@ -32,6 +36,17 @@
                     currentPrint = new Point(
                         startPrint.Row + top * CharactersPerRowBoardSquare,
                         startPrint.Col + left * CharactersPerColBoardSquare);
+
+                    if ((counter % 2).Equals(0))
+                    {
+                        Console.BackgroundColor = DarkSquareConsoleColor;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = LightSquareConsoleColor;
+                    }
+
+                    counter++;
 
                     Console.SetCursorPosition(currentPrint.Col, currentPrint.Row);
                     Console.Write(" ");
