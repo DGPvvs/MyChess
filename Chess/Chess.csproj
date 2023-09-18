@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Chess.Engine\Chess.Engine.csproj" />
+    <ProjectReference Include="..\Chess.InputProviders\Chess.InputProviders.csproj" />
     <ProjectReference Include="..\Chess.Renderers\Chess.Renderers.csproj" />
   </ItemGroup>
 
