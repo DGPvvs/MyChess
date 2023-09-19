@@ -3,20 +3,37 @@
     using Chess.Board.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Common.ConsoleHelpers;
+    using Chess.Figures.Contracts;
     using Chess.Renderers.Contracts;
+    using System;
 
     public class ConsoleRenderer : IRenderer
     {
         private const int CharactersPerRowBoardSquare = 9;
         private const int CharactersPerColBoardSquare = 9;
 
-        private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.DarkCyan;
+        private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.Cyan;
         private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
 
         private const string Logo = "ШАХ";
 
+        public void PrintFigure(IFigure figure, ConsoleColor backgroundColor, ConsoleColor figureColor)
+        {
+            if (figure is null)
+            {
+                this.PrintEmptySquare(backgroundColor);
+            }
+        }
+
+        private void PrintEmptySquare(ConsoleColor backgroundColor)
+        {
+            throw new NotImplementedException();
+        }
+
         public void RenderBoard(IBoard board)
         {
+            Console.Clear();
+
             Console.BufferHeight = Console.WindowHeight;
             Console.BufferWidth = Console.WindowWidth;
 
@@ -37,20 +54,34 @@
                         startPrint.Row + top * CharactersPerRowBoardSquare,
                         startPrint.Col + left * CharactersPerColBoardSquare);
 
+                    ConsoleColor backgroundColor;
+
                     if ((counter % 2).Equals(0))
                     {
+                        backgroundColor = DarkSquareConsoleColor;
                         Console.BackgroundColor = DarkSquareConsoleColor;
                     }
                     else
                     {
+                        backgroundColor = LightSquareConsoleColor;
                         Console.BackgroundColor = LightSquareConsoleColor;
                     }
 
-                    counter++;
+                    this.PrintFigure(null, Console.BackgroundColor, ConsoleColor.Black);
 
-                    Console.SetCursorPosition(currentPrint.Col, currentPrint.Row);
-                    Console.Write(" ");
+                    for (int i = 0; i < CharactersPerRowBoardSquare; i++)
+                    {
+                        for (int j = 0; j < CharactersPerColBoardSquare; j++)
+                        {
+                            Console.SetCursorPosition(currentPrint.Col + j, currentPrint.Row + i);
+                            Console.Write(" ");
+                        }
+                    }
+
+                    counter++;
                 }
+
+                counter++;
             }
 
 
@@ -61,6 +92,9 @@
 
         public void RenderMainMenu()
         {
+            Console.WindowHeight = Console.LargestWindowHeight;
+            Console.WindowWidth = Console.LargestWindowWidth;
+
             ConsoleHelpers.SetCursorAtCenter(Logo.Length);
 
             Console.WriteLine(Logo);

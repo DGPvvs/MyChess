@@ -8,6 +8,6 @@
             int centralCol = (Console.WindowWidth - lengthOfMessage) / 2;
 
             Console.SetCursorPosition(centralCol, cenrerRow);
-        }
-    }
+        }        
+    }    
 }
