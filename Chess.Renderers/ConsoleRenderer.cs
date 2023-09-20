@@ -15,9 +15,7 @@
         private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.Cyan;
         private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
 
-        private const string Logo = "ШАХ";        
-
-        
+        private const string Logo = "ШАХ";
 
         public void RenderBoard(IBoard board)
         {
@@ -47,29 +45,19 @@
 
                     if ((counter % 2).Equals(0))
                     {
-                        backgroundColor = DarkSquareConsoleColor;
-                        Console.BackgroundColor = DarkSquareConsoleColor;
+                        backgroundColor = DarkSquareConsoleColor;                        
                     }
                     else
                     {
-                        backgroundColor = LightSquareConsoleColor;
-                        Console.BackgroundColor = LightSquareConsoleColor;
+                        backgroundColor = LightSquareConsoleColor;                        
                     }
 
                     Position position = Position.FromArrayCoordinates(top, left, board.TotalRows);
 
                     IFigure figure = board.GetFigureAtPosition(position);
 
-                    ConsoleRendererHelper.PrintFigure(figure, Console.BackgroundColor, figure.Color.ToConsoleColor());
+                    ConsoleRendererHelper.PrintFigure(figure, Console.BackgroundColor, currentPrint.Row, currentPrint.Col);
 
-                    for (int i = 0; i < CharactersPerRowBoardSquare; i++)
-                    {
-                        for (int j = 0; j < CharactersPerColBoardSquare; j++)
-                        {
-                            Console.SetCursorPosition(currentPrint.Col + j, currentPrint.Row + i);
-                            Console.Write(" ");
-                        }
-                    }
 
                     counter++;
                 }

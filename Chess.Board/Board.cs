@@ -88,7 +88,7 @@
 
             char col = char.Parse(position.Col.ToString().ToLower());
 
-            if (col < 'a' || col > this.TotalCols - 'a')
+            if (col < 'a' || col > this.TotalCols + 'a')
             {
                 throw new IndexOutOfRangeException(OutOfRangeCol);
             }
