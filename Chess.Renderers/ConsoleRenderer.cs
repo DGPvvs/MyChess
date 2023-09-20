@@ -15,20 +15,9 @@
         private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.Cyan;
         private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
 
-        private const string Logo = "ШАХ";
+        private const string Logo = "ШАХ";        
 
-        public void PrintFigure(IFigure figure, ConsoleColor backgroundColor, ConsoleColor figureColor)
-        {
-            if (figure is null)
-            {
-                this.PrintEmptySquare(backgroundColor);
-            }
-        }
-
-        private void PrintEmptySquare(ConsoleColor backgroundColor)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void RenderBoard(IBoard board)
         {
@@ -67,7 +56,11 @@
                         Console.BackgroundColor = LightSquareConsoleColor;
                     }
 
-                    this.PrintFigure(null, Console.BackgroundColor, ConsoleColor.Black);
+                    Position position = Position.FromArrayCoordinates(top, left, board.TotalRows);
+
+                    IFigure figure = board.GetFigureAtPosition(position);
+
+                    ConsoleRendererHelper.PrintFigure(figure, Console.BackgroundColor, figure.Color.ToConsoleColor());
 
                     for (int i = 0; i < CharactersPerRowBoardSquare; i++)
                     {

@@ -22,5 +22,7 @@
             get => this.col;
             init => this.col = value;
         }
+
+        public static Position FromArrayCoordinates(int arrRow, int arrCol, int tottalRows) => new Position(tottalRows - arrRow, (char)('a' + arrCol));
     }
 }

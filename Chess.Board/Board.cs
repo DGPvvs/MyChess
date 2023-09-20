@@ -52,6 +52,13 @@
             this.board[point.Row, point.Col] = figure;
         }
 
+        public IFigure GetFigureAtPosition(Position position)
+        {
+            Point point = this.CalculatePosition(position);
+
+            return this.board[point.Row, point.Col];
+        }
+
         public void RemoveFigure(Position position)
         {
             this.PositionIsValid(position);

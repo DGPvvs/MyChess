@@ -19,6 +19,7 @@
             public const string PlayersNotHasThisFigureMessage = "Играчът не притежава тази фигура!";
             public const string StandartSrategyMustTwoPlayers = "Стандартната игра трябва да има двама играчи!";
             public const string StandartSrategyMustEightRowsAndCols = "Стандартната игра трябва да има осем реда и одем колони!";
+            public const string InvaldColor = "Невалиден цвят!";
         }
 
         public static class Fen

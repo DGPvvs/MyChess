@@ -8,7 +8,5 @@
         public void RenderBoard(IBoard board);
 
         public void RenderMainMenu();
-
-        public void PrintFigure(IFigure figure, ConsoleColor backgroundColor, ConsoleColor figureColor);
     }
 }
