@@ -54,7 +54,7 @@
                     {
                         fig = (FigureEnum)lines[7 - y][x];
 
-                        Point point = new Point(x, y);
+                        Point point = new Point(y, x);
 
                         IFigure? figure = null;
 

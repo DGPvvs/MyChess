@@ -71,7 +71,7 @@
         private Point CalculatePosition(Position position)
         {
             this.PositionIsValid(position);
-            int returnRow = this.TotalRows - position.Row;
+            int returnRow = position.Row - 1;
 
             char col = char.Parse(position.Col.ToString().ToLower());
             int returnCol = col - 'a';

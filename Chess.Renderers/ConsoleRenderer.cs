@@ -5,16 +5,13 @@
     using Chess.Common.ConsoleHelpers;
     using Chess.Figures.Contracts;
     using Chess.Renderers.Contracts;
+
     using System;
+
+    using static Chess.Common.Constants.GlobalConstants.ConsoleRendererConstants;
 
     public class ConsoleRenderer : IRenderer
     {
-        private const int CharactersPerRowBoardSquare = 9;
-        private const int CharactersPerColBoardSquare = 9;
-
-        private const ConsoleColor DarkSquareConsoleColor = ConsoleColor.Cyan;
-        private const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
-
         private const string Logo = "ШАХ";
 
         public void RenderBoard(IBoard board)
@@ -45,18 +42,18 @@
 
                     if ((counter % 2).Equals(0))
                     {
-                        backgroundColor = DarkSquareConsoleColor;                        
+                        backgroundColor = LightSquareConsoleColor;
                     }
                     else
                     {
-                        backgroundColor = LightSquareConsoleColor;                        
+                        backgroundColor = DarkSquareConsoleColor;
                     }
 
                     Position position = Position.FromArrayCoordinates(top, left, board.TotalRows);
 
                     IFigure figure = board.GetFigureAtPosition(position);
 
-                    ConsoleRendererHelper.PrintFigure(figure, Console.BackgroundColor, currentPrint.Row, currentPrint.Col);
+                    ConsoleRendererHelper.PrintFigure(figure, backgroundColor, currentPrint.Row, currentPrint.Col);
 
 
                     counter++;
