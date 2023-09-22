@@ -32,8 +32,8 @@
             public const int CharactersPerRowBoardSquare = 9;
             public const int CharactersPerColBoardSquare = 9;
 
-            public const ConsoleColor DarkSquareConsoleColor = ConsoleColor.Cyan;
-            public const ConsoleColor LightSquareConsoleColor = ConsoleColor.Gray;
+            public const ConsoleColor DarkSquareConsoleColor = ConsoleColor.DarkCyan;
+            public const ConsoleColor LightSquareConsoleColor = ConsoleColor.DarkGray;
         }
     }
 }

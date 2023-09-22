@@ -3,7 +3,6 @@
     using Chess.Common.Enums;
     using Chess.Figures;
     using Chess.Figures.Contracts;
-
     using static Chess.Common.Constants.GlobalConstants.ConsoleRendererConstants;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
     using static Chess.Renderers.Common.ConsoleFigurePatterns;
@@ -29,97 +28,65 @@
             {
                 PrintEmptySquare(backgroundColor, top, left);
             }
-
-            var pawn = pawnPattern;
-            var rook = rookPattern;
-            var knight = knightPattern;
-            var bishop = bishopPattern;
-
-            if (figure is Pawn) 
+            else
             {
-                for (int i = 0; i < pawnPattern.GetLength(0); i++)
+
+
+
+                Dictionary<string, char[,]> figurePatterns = new Dictionary<string, char[,]>()
+            {
+                {typeof(Pawn).Name, pawnPattern },
+                {typeof(Rook).Name, rookPattern },
+                {typeof(Knight).Name, knightPattern },
+                {typeof(Bishop).Name, bishopPattern },
+                {typeof(Queen).Name, queenPattern },
+                {typeof(King).Name, kingPattern }
+            };
+
+                switch (figure.GetType().Name)
                 {
-                    for (int j = 0; j < pawnPattern.GetLength(1); j++)
-                    {
-                        if (pawnPattern[i, j].Equals(ElementEnum.T))
-                        {
-                            Console.BackgroundColor = figure.Color.ToConsoleColor();
-                        }
-                        else
-                        {
-                            Console.BackgroundColor = backgroundColor;
-                        }
+                    case nameof(Pawn):
+                        PrintFigureSquare(figurePatterns[nameof(Pawn)], figure, backgroundColor, top, left);
+                        break;
+                    case nameof(Rook):
+                        PrintFigureSquare(figurePatterns[nameof(Rook)], figure, backgroundColor, top, left);
+                        break;
+                    case nameof(Knight):
+                        PrintFigureSquare(figurePatterns[nameof(Knight)], figure, backgroundColor, top, left);
+                        break;
+                    case nameof(Bishop):
+                        PrintFigureSquare(figurePatterns[nameof(Bishop)], figure, backgroundColor, top, left);
+                        break;
+                    case nameof(Queen):
+                        PrintFigureSquare(figurePatterns[nameof(Queen)], figure, backgroundColor, top, left);
+                        break;
+                    case nameof(King):
+                        PrintFigureSquare(figurePatterns[nameof(King)], figure, backgroundColor, top, left);
+                        break;
 
-                        Console.SetCursorPosition(left + j, top + i);
-                        Console.Write(" ");
-                    }
-
+                    default:
+                        break;
                 }
             }
+        }
 
-            if (figure is Rook)
+        private static void PrintFigureSquare(char[,] elementEnums, IFigure figure, ConsoleColor backgroundColor, int top, int left)
+        {
+            for (int i = 0; i < elementEnums.GetLength(0); i++)
             {
-                for (int i = 0; i < rookPattern.GetLength(0); i++)
+                for (int j = 0; j < elementEnums.GetLength(1); j++)
                 {
-                    for (int j = 0; j < rookPattern.GetLength(1); j++)
+                    if (elementEnums[i, j].Equals((char)ElementEnum.T))
                     {
-                        if (rookPattern[i, j].Equals(ElementEnum.T))
-                        {
-                            Console.BackgroundColor = figure.Color.ToConsoleColor();
-                        }
-                        else
-                        {
-                            Console.BackgroundColor = backgroundColor;
-                        }
-
-                        Console.SetCursorPosition(left + j, top + i);
-                        Console.Write(" ");
+                        Console.BackgroundColor = figure.Color.ToConsoleColor();
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = backgroundColor;
                     }
 
-                }
-            }
-
-            if (figure is Knight)
-            {
-                for (int i = 0; i < knightPattern.GetLength(0); i++)
-                {
-                    for (int j = 0; j < knightPattern.GetLength(1); j++)
-                    {
-                        if (knightPattern[i, j].Equals(ElementEnum.T))
-                        {
-                            Console.BackgroundColor = figure.Color.ToConsoleColor();
-                        }
-                        else
-                        {
-                            Console.BackgroundColor = backgroundColor;
-                        }
-
-                        Console.SetCursorPosition(left + j, top + i);
-                        Console.Write(" ");
-                    }
-
-                }
-            }
-
-            if (figure is Bishop)
-            {
-                for (int i = 0; i < bishopPattern.GetLength(0); i++)
-                {
-                    for (int j = 0; j < bishopPattern.GetLength(1); j++)
-                    {
-                        if (bishopPattern[i, j].Equals(ElementEnum.T))
-                        {
-                            Console.BackgroundColor = figure.Color.ToConsoleColor();
-                        }
-                        else
-                        {
-                            Console.BackgroundColor = backgroundColor;
-                        }
-
-                        Console.SetCursorPosition(left + j, top + i);
-                        Console.Write(" ");
-                    }
-
+                    Console.SetCursorPosition(left + j, top + i);
+                    Console.Write(" ");
                 }
             }
         }

@@ -4,60 +4,86 @@
     {
         public enum ElementEnum
         {
-            T = 0,
-            F = 1
+            T = '*',
+            F = ' '
         }
 
-        public static readonly ElementEnum[,] pawnPattern = new ElementEnum[ 9, 9 ]
+        public static readonly char[,] pawnPattern = new char[9, 9]
         {
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
         };
 
-        public static readonly ElementEnum[,] rookPattern = new ElementEnum[9, 9]
+        public static readonly char[,] rookPattern = new char[9, 9]
         {
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', '*', ' ', '*', ' ', '*', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
         };
 
-        public static readonly ElementEnum[,] knightPattern = new ElementEnum[9, 9]
+        public static readonly char[,] knightPattern = new char[9, 9]
         {
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', ' ', '*', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
         };
 
-        public static readonly ElementEnum[,] bishopPattern = new ElementEnum[9, 9]
+        public static readonly char[,] bishopPattern = new char[9, 9]
         {
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.T, ElementEnum.F, ElementEnum.F},
-            {ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F, ElementEnum.F},
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', ' ', '*', '*', ' ', '*', '*', ' ', ' ' },
+            { ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ' },
+            { ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', '*', '*', '*', ' ', '*', '*', '*', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
+        };
+
+        public static readonly char[,] queenPattern = new char[9, 9]
+        {
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', '*', ' ', '*', ' ', '*', ' ', ' ' },
+            { ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ' },
+            { ' ', '*', ' ', '*', '*', '*', ' ', '*', ' ' },
+            { ' ', ' ', '*', ' ', '*', ' ', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', ' ', '*', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
+        };
+
+        public static readonly char[,] kingPattern = new char[9, 9]
+        {
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ' },
+            { ' ', ' ', ' ', '*', '*', '*', ' ', ' ', ' ' },
+            { ' ', '*', '*', ' ', '*', ' ', '*', '*', ' ' },
+            { ' ', '*', '*', '*', ' ', '*', '*', '*', ' ' },
+            { ' ', '*', '*', '*', '*', '*', '*', '*', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', '*', '*', '*', '*', '*', ' ', ' ' },
+            { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
         };
     }
 }
