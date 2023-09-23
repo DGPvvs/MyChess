@@ -1,5 +1,6 @@
 ﻿namespace Chess.InputProviders
 {
+    using Chess.Common.CommonClasses;
     using Chess.Common.ConsoleHelpers;
     using Chess.Common.Enums;
     using Chess.InputProviders.Contracts;
@@ -9,6 +10,12 @@
     public class ConsoleInputProvider : IInputProvider
     {
         private const string PlayerNameText = "Въведете името на {0} играч: ";
+
+        public Move GetNextPlayerMove(IPlayer player)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<IPlayer> GetPlayers(int numberOfPlayers)
         {
             List<IPlayer> players = new List<IPlayer>();
@@ -20,7 +27,7 @@
                 Console.Write(string.Format(PlayerNameText, i));
                 string name = Console.ReadLine();
 
-                Player player = new Player((ChessColor)(i - 1), name);
+                Player player = new Player((ChessColor)(i), name);
 
                 players.Add(player);
             }

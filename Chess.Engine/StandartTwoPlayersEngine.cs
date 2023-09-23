@@ -14,6 +14,8 @@
     public class StandartTwoPlayersEngine : IChessEngine
     {        
         private IList<IPlayer> players;
+        private int currentPlayerIndex;
+
         private readonly IRenderer renderer;
         private readonly IInputProvider inputProvider;
         private readonly IBoard board;
@@ -23,8 +25,8 @@
             this.renderer = renderer;
             this.inputProvider = inputProvider;
             this.board = new Board();
-            this.players = new List<IPlayer>();
-        }
+            this.players = new List<IPlayer>();            
+        }        
 
         public IList<IPlayer> Players => new List<IPlayer>(this.players);
 
@@ -32,18 +34,49 @@
         {
             this.players = this.inputProvider.GetPlayers(StandartPlayersNum);
 
+            this.SetFirstPlayerIndex();
+
             gameInitializationStrategy.Initialize(this.players, this.board);
             this.renderer.RenderBoard(this.board);
         }
 
         public void Start()
         {
-            throw new NotImplementedException();
+            IPlayer player = this.GetNextPlayer();
+            var move = this.inputProvider.GetNextPlayerMove();
         }
+
 
         public WinResult WinningConditions()
         {
             throw new NotImplementedException();
+        }
+
+        private void SetFirstPlayerIndex()
+        {
+            int i = 0;
+            bool isLoopExit = false;
+
+            while (!isLoopExit)
+            {
+                if (this.players[i].Color.Equals(ChessColor.While))
+                {
+                    this.currentPlayerIndex = i;
+                    isLoopExit = true;
+                }
+            }
+        }
+
+        private IPlayer GetNextPlayer()
+        {
+            this.currentPlayerIndex++;
+
+            if (this.currentPlayerIndex >= this.players.Count)
+            {
+                this.currentPlayerIndex = 0;
+            }
+
+            return this.players[this.currentPlayerIndex];
         }
     }
 }

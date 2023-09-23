@@ -55,17 +55,13 @@
 
                     ConsoleRendererHelper.PrintFigure(figure, backgroundColor, currentPrint.Row, currentPrint.Col);
 
-
                     counter++;
                 }
 
                 counter++;
             }
 
-
-
-            Console.ReadLine();
-
+            Console.SetCursorPosition(Console.WindowWidth / 2, 2);
         }
 
         public void RenderMainMenu()

@@ -30,18 +30,15 @@
             }
             else
             {
-
-
-
                 Dictionary<string, char[,]> figurePatterns = new Dictionary<string, char[,]>()
-            {
-                {typeof(Pawn).Name, pawnPattern },
-                {typeof(Rook).Name, rookPattern },
-                {typeof(Knight).Name, knightPattern },
-                {typeof(Bishop).Name, bishopPattern },
-                {typeof(Queen).Name, queenPattern },
-                {typeof(King).Name, kingPattern }
-            };
+                {
+                    { typeof(Pawn).Name, pawnPattern },
+                    { typeof(Rook).Name, rookPattern },
+                    { typeof(Knight).Name, knightPattern },
+                    { typeof(Bishop).Name, bishopPattern },
+                    { typeof(Queen).Name, queenPattern },
+                    { typeof(King).Name, kingPattern }
+                };
 
                 switch (figure.GetType().Name)
                 {

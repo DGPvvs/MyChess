@@ -3,7 +3,7 @@
     public enum ChessColor
     {
         None = 0,
-        Black = 1,
-        While = 2
+        While = 1,
+        Black = 2
     }
 }
