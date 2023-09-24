@@ -1,5 +1,6 @@
 ﻿namespace Chess.Renderers
 {
+    using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
     using Chess.Figures;
     using Chess.Figures.Contracts;
@@ -65,6 +66,25 @@
                         break;
                 }
             }
+        }
+
+        public static Move CreatedMoveFromCommand(string command)
+        {
+            string[] positionAsStringParts = command.Split("-", StringSplitOptions.RemoveEmptyEntries);
+
+            if (!positionAsStringParts.Length.Equals(2))
+            {
+                throw new InvalidOperationException(InvaldCommand);
+            }
+
+            var fromAsString = positionAsStringParts[0];
+            var toAsString = positionAsStringParts[1];
+
+            Position fromPosition = Position.FromChessCoordinates(fromAsString[1] - '0', fromAsString[0]);
+            Position toPosition = Position.FromChessCoordinates(toAsString[1] - '0', toAsString[0]);
+
+            return new Move(fromPosition, toPosition);
+
         }
 
         private static void PrintFigureSquare(char[,] elementEnums, IFigure figure, ConsoleColor backgroundColor, int top, int left)

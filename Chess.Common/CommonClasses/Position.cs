@@ -1,5 +1,8 @@
 ﻿namespace Chess.Common.CommonClasses
 {
+    using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
+    using static Chess.Common.Constants.GlobalConstants.BoardConstants;
+
     public class Position
     {
         private readonly int row;
@@ -24,5 +27,25 @@
         }
 
         public static Position FromArrayCoordinates(int arrRow, int arrCol, int tottalRows) => new Position(tottalRows - arrRow, (char)('a' + arrCol));
+
+        public static Position FromChessCoordinates(int chessRow, char chessCol)
+        {
+            Position newPosition = new Position(chessRow, chessCol);
+            CheckIfValid(newPosition);
+            return newPosition;
+        }
+
+        public static void CheckIfValid(Position position)
+        {
+            if (position.Row < MinimumRowValueOnBoard || position.Row > MaximumRowValueOnBoard)
+            {
+                throw new IndexOutOfRangeException(OutOfRangeRow);
+            }            
+
+            if (position.Col < MinimumColValueOnBoard || position.Col > MaximumColValueOnBoard)
+            {
+                throw new IndexOutOfRangeException(OutOfRangeCol);
+            }
+        }
     }
 }

@@ -14,6 +14,14 @@
     {
         private const string Logo = "ШАХ";
 
+        public void PrintErrorMessage(string message)
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.Write(message);
+
+            Thread.Sleep(2000);
+        }
+
         public void RenderBoard(IBoard board)
         {
             Console.Clear();

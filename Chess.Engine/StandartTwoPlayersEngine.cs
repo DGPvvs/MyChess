@@ -10,9 +10,10 @@
 
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
     using Chess.Board.Contracts;
+    using Chess.Common.CommonClasses;
 
     public class StandartTwoPlayersEngine : IChessEngine
-    {        
+    {
         private IList<IPlayer> players;
         private int currentPlayerIndex;
 
@@ -25,8 +26,8 @@
             this.renderer = renderer;
             this.inputProvider = inputProvider;
             this.board = new Board();
-            this.players = new List<IPlayer>();            
-        }        
+            this.players = new List<IPlayer>();
+        }
 
         public IList<IPlayer> Players => new List<IPlayer>(this.players);
 
@@ -42,8 +43,19 @@
 
         public void Start()
         {
-            IPlayer player = this.GetNextPlayer();
-            var move = this.inputProvider.GetNextPlayerMove();
+            while (true)
+            {
+                try
+                {
+                    IPlayer player = this.GetNextPlayer();
+                    Move move = this.inputProvider.GetNextPlayerMove(player);
+                }
+                catch (Exception ex)
+                {
+                    this.currentPlayerIndex--;
+                    this.renderer.PrintErrorMessage(ex.Message);
+                }
+            }
         }
 
 
@@ -69,6 +81,8 @@
 
         private IPlayer GetNextPlayer()
         {
+            IPlayer result = this.players[this.currentPlayerIndex];
+
             this.currentPlayerIndex++;
 
             if (this.currentPlayerIndex >= this.players.Count)
@@ -76,7 +90,7 @@
                 this.currentPlayerIndex = 0;
             }
 
-            return this.players[this.currentPlayerIndex];
+            return result;
         }
     }
 }

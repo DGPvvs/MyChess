@@ -6,6 +6,7 @@
     using Chess.InputProviders.Contracts;
     using Chess.Players;
     using Chess.Players.Contracts;
+    using Chess.Renderers;
 
     public class ConsoleInputProvider : IInputProvider
     {
@@ -13,7 +14,13 @@
 
         public Move GetNextPlayerMove(IPlayer player)
         {
-            throw new NotImplementedException();
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write("Следващ ход на {0}: ", player.Name);
+
+            string positionAsString = Console.ReadLine().Trim().ToLower();
+
+            Move move = ConsoleRendererHelper.CreatedMoveFromCommand(positionAsString);
+            return move;
         }
 
         public IList<IPlayer> GetPlayers(int numberOfPlayers)

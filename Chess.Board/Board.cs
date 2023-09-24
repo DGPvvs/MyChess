@@ -40,7 +40,7 @@
         public void AddFigure(IFigure figure, Position position)
         {
             ObjectValidator.CheckIfObjectIsNull(figure, NullFigureErrorMessage);
-            this.PositionIsValid(position);
+            Position.CheckIfValid(position);
 
             Point  point = this.CalculatePosition(position);
 
@@ -61,7 +61,7 @@
 
         public void RemoveFigure(Position position)
         {
-            this.PositionIsValid(position);
+            Position.CheckIfValid(position);
 
             Point point = this.CalculatePosition(position);
 
@@ -70,28 +70,13 @@
 
         private Point CalculatePosition(Position position)
         {
-            this.PositionIsValid(position);
+            Position.CheckIfValid(position);
             int returnRow = position.Row - 1;
 
             char col = char.Parse(position.Col.ToString().ToLower());
             int returnCol = col - 'a';
 
             return new Point(returnRow, returnCol);
-        }
-
-        private void PositionIsValid(Position position)
-        {
-            if (position.Row < 1 || position.Row > this.TotalRows )
-            {
-                throw new IndexOutOfRangeException(OutOfRangeRow);
-            }
-
-            char col = char.Parse(position.Col.ToString().ToLower());
-
-            if (col < 'a' || col > this.TotalCols + 'a')
-            {
-                throw new IndexOutOfRangeException(OutOfRangeCol);
-            }
         }
     }
 }

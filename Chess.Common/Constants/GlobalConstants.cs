@@ -7,6 +7,11 @@
             public const int StandartPlayersNum = 2;
             public const int StandartRows = 8;
             public const int StandartCols = 8;
+            public const int MinimumRowValueOnBoard = 1;
+            public const int MaximumRowValueOnBoard = 8;
+            public const char MinimumColValueOnBoard = 'a';
+            public const char MaximumColValueOnBoard = 'h';
+
         }
 
         public static class ErrorMessages
@@ -20,6 +25,7 @@
             public const string StandartSrategyMustTwoPlayers = "Стандартната игра трябва да има двама играчи!";
             public const string StandartSrategyMustEightRowsAndCols = "Стандартната игра трябва да има осем реда и одем колони!";
             public const string InvaldColor = "Невалиден цвят!";
+            public const string InvaldCommand = "Невалидна команда!";
         }
 
         public static class Fen
