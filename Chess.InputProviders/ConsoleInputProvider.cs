@@ -19,6 +19,10 @@
 
             string positionAsString = Console.ReadLine().Trim().ToLower();
 
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, 0);
+
             Move move = ConsoleRendererHelper.CreatedMoveFromCommand(positionAsString);
             return move;
         }

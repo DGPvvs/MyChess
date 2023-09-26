@@ -20,6 +20,10 @@
             Console.Write(message);
 
             Thread.Sleep(2000);
+
+            Console.SetCursorPosition(0, 0);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, 0);
         }
 
         public void RenderBoard(IBoard board)
@@ -34,6 +38,26 @@
                 (Console.WindowWidth - board.TotalCols * CharactersPerColBoardSquare) / 2);
 
             Point currentPrint = new Point(startPrint.Row, startPrint.Col);
+
+            for (int i = startPrint.Row - 3; i < startPrint.Row + 4 + board.TotalRows * CharactersPerRowBoardSquare; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
+                Console.SetCursorPosition(currentPrint.Col - 4, i);
+                Console.Write(" ");
+
+                Console.SetCursorPosition(currentPrint.Col + 3 + board.TotalCols * CharactersPerColBoardSquare, i);
+                Console.Write(" ");
+            }
+
+            for (int i = startPrint.Col - 3; i < startPrint.Col + 3 + board.TotalCols * CharactersPerColBoardSquare; i++)
+            {
+                Console.BackgroundColor = DarkSquareConsoleColor;
+                Console.SetCursorPosition(i, currentPrint.Row - 3);
+                Console.Write(" ");
+
+                Console.SetCursorPosition(i, currentPrint.Row + 3 + board.TotalCols * CharactersPerColBoardSquare);
+                Console.Write(" ");
+            }
 
             Console.BackgroundColor = ConsoleColor.Blue;
             int counter = 0;
@@ -70,6 +94,7 @@
             }
 
             Console.SetCursorPosition(Console.WindowWidth / 2, 2);
+            Console.SetCursorPosition(0, 0);
         }
 
         public void RenderMainMenu()
