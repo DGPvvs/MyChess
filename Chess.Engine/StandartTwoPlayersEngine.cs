@@ -70,6 +70,11 @@
             {
                 throw new InvalidOperationException(string.Format(FromPositionIsEmpty, from.Col, from.Row));
             }
+
+            if (!figure.Color.Equals(player.Color))
+            {
+                throw new InvalidOperationException(string.Format(ThisFigureIsNotYours, from.Col, from.Row));
+            }
         }
 
         public WinResult WinningConditions()

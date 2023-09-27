@@ -27,6 +27,9 @@
             public const string InvaldColor = "Невалиден цвят!";
             public const string InvaldCommand = "Невалидна команда!";
             public const string FromPositionIsEmpty = "Позиция {0}{1} е празна!";
+            public const string ThisFigureIsNotYours = "Фигурата на позиция {0}{1} не е ваша!";
+
+            
         }
 
         public static class Fen
