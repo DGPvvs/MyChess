@@ -116,7 +116,10 @@
 
             for (int i = 0; i < board.TotalRows; i++)
             {
-                Console.SetCursorPosition(startPrint.Row, startPrint.Row - 2);
+                Console.SetCursorPosition(startPrint.Col - 3, startPrint.Row + (board.TotalRows - i) * CharactersPerRowBoardSquare - 5);
+                Console.WriteLine(i + 1);
+
+                Console.SetCursorPosition(startPrint.Col + 2 + board.TotalCols * CharactersPerColBoardSquare, startPrint.Row + (board.TotalRows - i) * CharactersPerRowBoardSquare - 5);
                 Console.WriteLine(i + 1);
             }
         }
