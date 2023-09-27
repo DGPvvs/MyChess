@@ -20,7 +20,7 @@
             Console.SetCursorPosition(0, 0);
             Console.Write(message);
 
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
 
             Console.SetCursorPosition(0, 0);
             Console.Write(new string(' ', Console.WindowWidth));

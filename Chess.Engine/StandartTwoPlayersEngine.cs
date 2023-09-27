@@ -1,17 +1,19 @@
 ﻿namespace Chess.Engine
 {
+    using System.Collections.Generic;
+
     using Chess.Common.Enums;
     using Chess.Engine.Contracts;
     using Chess.InputProviders.Contracts;
     using Chess.Players.Contracts;
     using Chess.Renderers.Contracts;
-    using System.Collections.Generic;
     using Chess.Board;
-
-    using static Chess.Common.Constants.GlobalConstants.BoardConstants;
     using Chess.Board.Contracts;
     using Chess.Common.CommonClasses;
+    using Chess.Figures.Contracts;
 
+    using static Chess.Common.Constants.GlobalConstants.BoardConstants;
+    using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
     public class StandartTwoPlayersEngine : IChessEngine
     {
         private IList<IPlayer> players;
@@ -49,6 +51,8 @@
                 {
                     IPlayer player = this.GetNextPlayer();
                     Move move = this.inputProvider.GetNextPlayerMove(player);
+                    Position from = move.From;
+                    this.CheckIfPlayerOwnsFigure(player, from);
                 }
                 catch (Exception ex)
                 {
@@ -58,6 +62,15 @@
             }
         }
 
+        private void CheckIfPlayerOwnsFigure(IPlayer player, Position from)
+        {
+            IFigure figure = this.board.GetFigureAtPosition(from);
+
+            if (figure is null)
+            {
+                throw new InvalidOperationException(string.Format(FromPositionIsEmpty, from.Col, from.Row));
+            }
+        }
 
         public WinResult WinningConditions()
         {

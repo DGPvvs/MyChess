@@ -26,6 +26,7 @@
             public const string StandartSrategyMustEightRowsAndCols = "Стандартната игра трябва да има осем реда и одем колони!";
             public const string InvaldColor = "Невалиден цвят!";
             public const string InvaldCommand = "Невалидна команда!";
+            public const string FromPositionIsEmpty = "Позиция {0}{1} е празна!";
         }
 
         public static class Fen
