@@ -52,7 +52,9 @@
                     IPlayer player = this.GetNextPlayer();
                     Move move = this.inputProvider.GetNextPlayerMove(player);
                     Position from = move.From;
-                    this.CheckIfPlayerOwnsFigure(player, from);
+
+                    IFigure figure = this.board.GetFigureAtPosition(from);
+                    this.CheckIfPlayerOwnsFigure(player, figure, from);
                 }
                 catch (Exception ex)
                 {
@@ -62,10 +64,8 @@
             }
         }
 
-        private void CheckIfPlayerOwnsFigure(IPlayer player, Position from)
+        private void CheckIfPlayerOwnsFigure(IPlayer player, IFigure figure, Position from)
         {
-            IFigure figure = this.board.GetFigureAtPosition(from);
-
             if (figure is null)
             {
                 throw new InvalidOperationException(string.Format(FromPositionIsEmpty, from.Col, from.Row));
