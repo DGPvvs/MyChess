@@ -1,11 +1,11 @@
 ﻿namespace Chess.Engine.Initializations
 {
     using Chess.Board.Contracts;
+    using Chess.Board.Figures;
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
     using Chess.Engine.Contracts;
-    using Chess.Figures;
-    using Chess.Figures.Contracts;
     using Chess.Players.Contracts;
     using System.Collections.Generic;
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;

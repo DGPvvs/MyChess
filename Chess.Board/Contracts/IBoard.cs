@@ -1,7 +1,7 @@
 ﻿namespace Chess.Board.Contracts
 {
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
-    using Chess.Figures.Contracts;
 
     public interface IBoard
     {

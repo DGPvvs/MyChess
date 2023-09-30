@@ -1,8 +1,8 @@
 ﻿namespace Chess.Board
 {
     using Chess.Board.Contracts;
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
-    using Chess.Figures.Contracts;
 
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
@@ -12,6 +12,7 @@
         private readonly IFigure[,] board;
         private int totalRows;
         private int totalCols;
+
 
         public Board() : this(StandartRows, StandartCols)
         {

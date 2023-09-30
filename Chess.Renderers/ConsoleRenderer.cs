@@ -1,10 +1,9 @@
 ﻿namespace Chess.Renderers
 {
-    using Chess.Board;
     using Chess.Board.Contracts;
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Common.ConsoleHelpers;
-    using Chess.Figures.Contracts;
     using Chess.Renderers.Contracts;
 
     using System;

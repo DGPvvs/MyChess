@@ -1,9 +1,9 @@
 ﻿namespace Chess.Renderers
 {
+    using Chess.Board.Figures;
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
-    using Chess.Figures;
-    using Chess.Figures.Contracts;
     using static Chess.Common.Constants.GlobalConstants.ConsoleRendererConstants;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
     using static Chess.Renderers.Common.ConsoleFigurePatterns;

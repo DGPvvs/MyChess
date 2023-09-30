@@ -1,9 +1,10 @@
 ﻿namespace Chess.Players
 {
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
-    using Chess.Figures.Contracts;
     using Chess.Players.Contracts;
+
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
 
     public class Player : IPlayer

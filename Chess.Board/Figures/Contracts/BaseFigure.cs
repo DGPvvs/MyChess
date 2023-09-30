@@ -1,7 +1,7 @@
-﻿namespace Chess.Figures.Contracts
+﻿namespace Chess.Board.Figures.Contracts
 {
+    using Chess.Board.Moves.Contracts;
     using Chess.Common.Enums;
-    using Class.Moves.Contracts;
 
     public abstract class BaseFigure : IFigure
     {

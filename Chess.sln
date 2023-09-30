@@ -9,15 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Board", "Chess.Board\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Common", "Chess.Common\Chess.Common.csproj", "{8460929C-4D0E-489B-887F-358B3647D75B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Figures", "Chess.Figures\Chess.Figures.csproj", "{E2F7214D-226A-4592-B8DD-F824CCF3277E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Players", "Chess.Players\Chess.Players.csproj", "{8764CCD1-F600-48F5-B523-7901BFD76972}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Engine", "Chess.Engine\Chess.Engine.csproj", "{8E8F417E-41EA-44D3-9C5F-0C39BECD5795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Renderers", "Chess.Renderers\Chess.Renderers.csproj", "{300E99F4-06E7-437A-A58B-27A91BD74014}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Renderers", "Chess.Renderers\Chess.Renderers.csproj", "{300E99F4-06E7-437A-A58B-27A91BD74014}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.InputProviders", "Chess.InputProviders\Chess.InputProviders.csproj", "{A9F4A8EF-4475-44AD-BF8E-3E64139EA4FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.InputProviders", "Chess.InputProviders\Chess.InputProviders.csproj", "{A9F4A8EF-4475-44AD-BF8E-3E64139EA4FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{8460929C-4D0E-489B-887F-358B3647D75B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8460929C-4D0E-489B-887F-358B3647D75B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8460929C-4D0E-489B-887F-358B3647D75B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2F7214D-226A-4592-B8DD-F824CCF3277E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2F7214D-226A-4592-B8DD-F824CCF3277E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2F7214D-226A-4592-B8DD-F824CCF3277E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2F7214D-226A-4592-B8DD-F824CCF3277E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8764CCD1-F600-48F5-B523-7901BFD76972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8764CCD1-F600-48F5-B523-7901BFD76972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8764CCD1-F600-48F5-B523-7901BFD76972}.Release|Any CPU.ActiveCfg = Release|Any CPU

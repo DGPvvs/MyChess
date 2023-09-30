@@ -1,19 +1,19 @@
 ﻿namespace Chess.Engine
 {
-    using System.Collections.Generic;
-
+    using Chess.Board;
+    using Chess.Board.Contracts;
+    using Chess.Board.Figures.Contracts;
+    using Chess.Board.Moves.Contracts;
+    using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
     using Chess.Engine.Contracts;
     using Chess.InputProviders.Contracts;
     using Chess.Players.Contracts;
     using Chess.Renderers.Contracts;
-    using Chess.Board;
-    using Chess.Board.Contracts;
-    using Chess.Common.CommonClasses;
-    using Chess.Figures.Contracts;
-
+    using System.Collections.Generic;
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
+
     public class StandartTwoPlayersEngine : IChessEngine
     {
         private IList<IPlayer> players;
@@ -50,11 +50,19 @@
                 try
                 {
                     IPlayer player = this.GetNextPlayer();
-                    Move move = this.inputProvider.GetNextPlayerMove(player);
-                    Position from = move.From;
+                    Move mov = this.inputProvider.GetNextPlayerMove(player);
+                    Position from = mov.From;
 
                     IFigure figure = this.board.GetFigureAtPosition(from);
                     this.CheckIfPlayerOwnsFigure(player, figure, from);
+
+                    var aviableMoves = figure.Move();
+
+                    foreach (var move in aviableMoves)
+                    {
+                        move.ValidateMove(figure, board);
+
+                    }
                 }
                 catch (Exception ex)
                 {

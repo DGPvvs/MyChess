@@ -1,8 +1,8 @@
-﻿namespace Chess.Figures
+﻿namespace Chess.Board.Figures
 {
+    using Chess.Board.Figures.Contracts;
+    using Chess.Board.Moves.Contracts;
     using Chess.Common.Enums;
-    using Chess.Figures.Contracts;
-    using Class.Moves.Contracts;
     using System.Collections.Generic;
 
     public class Rook : BaseFigure

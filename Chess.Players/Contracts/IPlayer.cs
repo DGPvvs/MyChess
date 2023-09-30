@@ -1,7 +1,7 @@
 ﻿namespace Chess.Players.Contracts
 {
+    using Chess.Board.Figures.Contracts;
     using Chess.Common.Enums;
-    using Chess.Figures.Contracts;
 
     public interface IPlayer
     {
