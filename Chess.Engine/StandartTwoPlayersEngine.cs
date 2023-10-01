@@ -50,17 +50,20 @@
                 try
                 {
                     IPlayer player = this.GetNextPlayer();
-                    Move mov = this.inputProvider.GetNextPlayerMove(player);
-                    Position from = mov.From;
+                    Move move = this.inputProvider.GetNextPlayerMove(player);
+                    Position from = move.From;
+                    Position to = move.To;
 
                     IFigure figure = this.board.GetFigureAtPosition(from);
                     this.CheckIfPlayerOwnsFigure(player, figure, from);
+                    this.CheckIfToPositionIsEmpty(figure, to);
+
 
                     var aviableMoves = figure.Move();
 
-                    foreach (var move in aviableMoves)
+                    foreach (var mov in aviableMoves)
                     {
-                        move.ValidateMove(figure, board);
+                        mov.ValidateMove(figure, board, move);
 
                     }
                 }
@@ -69,6 +72,16 @@
                     this.currentPlayerIndex--;
                     this.renderer.PrintErrorMessage(ex.Message);
                 }
+            }
+        }
+
+        private void CheckIfToPositionIsEmpty(IFigure figure, Position to)
+        {
+            IFigure figureAtPosition = this.board.GetFigureAtPosition(to);
+
+            if (!(figureAtPosition is null) && figureAtPosition.Color.Equals(figure.Color))
+            {
+                throw new InvalidOperationException(string.Format(AlresdyHaveYourFigureAtPosition, to.Col, to.Row));
             }
         }
 

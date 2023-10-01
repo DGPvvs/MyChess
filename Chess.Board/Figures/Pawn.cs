@@ -1,6 +1,7 @@
 ﻿namespace Chess.Board.Figures
 {
     using Chess.Board.Figures.Contracts;
+    using Chess.Board.Moves;
     using Chess.Board.Moves.Contracts;
     using Chess.Common.Enums;
     using System.Collections.Generic;
@@ -13,6 +14,12 @@
 
         public override ICollection<IMoves> Move()
         {
+            return new List<IMoves>()
+            {
+                new NormalPownMove(),
+                new AnPassanMovement()
+            };
+//            var result = this.CanPownMove();
             throw new NotImplementedException();
         }
     }
