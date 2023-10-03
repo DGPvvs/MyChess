@@ -60,6 +60,12 @@
             return this.board[point.Row, point.Col];
         }
 
+        public void MoveFigureAtPosition(IFigure figure, Position from, Position to)
+        {
+            this.RemoveFigure(from);
+            this.AddFigure(figure, to);
+        }
+
         public void RemoveFigure(Position position)
         {
             Position.CheckIfValid(position);

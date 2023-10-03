@@ -4,6 +4,7 @@
     using Chess.Board.Contracts;
     using Chess.Board.Figures.Contracts;
     using Chess.Board.Moves.Contracts;
+    using Chess.Board.Moves.Strategy;
     using Chess.Common.CommonClasses;
     using Chess.Common.Enums;
     using Chess.Engine.Contracts;
@@ -22,11 +23,13 @@
         private readonly IRenderer renderer;
         private readonly IInputProvider inputProvider;
         private readonly IBoard board;
+        private readonly IMovementStrategy movementStrategy;
 
         public StandartTwoPlayersEngine(IRenderer renderer, IInputProvider inputProvider)
         {
             this.renderer = renderer;
             this.inputProvider = inputProvider;
+            this.movementStrategy = new NormalMovmentStrategy();
             this.board = new Board();
             this.players = new List<IPlayer>();
         }
@@ -59,13 +62,16 @@
                     this.CheckIfToPositionIsEmpty(figure, to);
 
 
-                    var aviableMoves = figure.Move();
+                    var aviableMoves = figure.Move(this.movementStrategy, this.ConvertFigure(figure));
 
                     foreach (var mov in aviableMoves)
                     {
                         mov.ValidateMove(figure, board, move);
 
                     }
+
+                    board.MoveFigureAtPosition(figure, from, to);
+                    this.renderer.RenderBoard(board);
                 }
                 catch (Exception ex)
                 {
@@ -73,6 +79,19 @@
                     this.renderer.PrintErrorMessage(ex.Message);
                 }
             }
+        }
+
+        private FigureEnum ConvertFigure(IFigure figure)
+        {
+            var figureColor = figure.Color.ToString();
+            if (figureColor.Contains("While"))
+            {
+                figureColor = "White";
+            }
+
+            var figureName = figure.GetType().Name;
+
+            return (FigureEnum)Enum.Parse(typeof(FigureEnum), figureColor + figureName);
         }
 
         private void CheckIfToPositionIsEmpty(IFigure figure, Position to)

@@ -11,7 +11,7 @@
         {
         }
 
-        public override ICollection<IMoves> Move()
+        public override ICollection<IMoves> Move(IMovementStrategy movementStrategy, FigureEnum figure)
         {
             throw new NotImplementedException();
         }

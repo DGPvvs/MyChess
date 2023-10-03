@@ -16,5 +16,7 @@
         public void RemoveFigure(Position position);
 
         public IFigure GetFigureAtPosition(Position position);
+
+        public void MoveFigureAtPosition(IFigure figure, Position from, Position to);
     }
 }

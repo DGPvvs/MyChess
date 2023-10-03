@@ -12,6 +12,6 @@
 
         public ChessColor Color { get; init; }
 
-        public abstract ICollection<IMoves> Move();
+        public abstract ICollection<IMoves> Move(IMovementStrategy movementStrategy, FigureEnum figure);
     }
 }

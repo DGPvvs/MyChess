@@ -12,8 +12,9 @@
         {
         }
 
-        public override ICollection<IMoves> Move()
+        public override ICollection<IMoves> Move(IMovementStrategy movementStrategy, FigureEnum figure)
         {
+            return movementStrategy.GetMoves(figure);
             return new List<IMoves>()
             {
                 new NormalPownMove(),

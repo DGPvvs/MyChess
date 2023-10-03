@@ -36,6 +36,13 @@
         public void ValidateMove(IFigure figure, IBoard board, Move move)
         {
             ChessColor color = figure.Color;
+            ChessColor otherColor = ChessColor.Black;
+
+            if (color.Equals(ChessColor.Black))
+            {
+                otherColor = ChessColor.While;
+            }
+
             Position from = move.From;
             Position to = move.To;
 
@@ -53,7 +60,7 @@
             {
                 if ((from.Row + 1).Equals(to.Row) && this.CheckDiagonalMove(from, to))
                 {
-                    if (this.CheckOtherFigureIfValid(board, to, ChessColor.Black))
+                    if (this.CheckOtherFigureIfValid(board, to, otherColor))
                     {
                         return;
                     }
@@ -63,15 +70,46 @@
             {
                 if ((from.Row - 1).Equals(to.Row) && this.CheckDiagonalMove(from, to))
                 {
-                    if (this.CheckOtherFigureIfValid(board, to, ChessColor.While))
+                    if (this.CheckOtherFigureIfValid(board, to, otherColor))
                     {
                         return;
                     }
                 }
             }
 
+            if (from.Row.Equals(2) && color.Equals(ChessColor.While))
+            {
+                if ((from.Row + 2).Equals(to.Row) && this.CheckOtherFigureIfValid(board, to, otherColor))
+                {
+                    return;
+                }
+            }
+            else if (from.Row.Equals(7) && color.Equals(ChessColor.Black))
+            {
+                if ((from.Row - 2).Equals(to.Row) && this.CheckOtherFigureIfValid(board, to, otherColor))
+                {
+                    return;
+                }
+            }
+
+            if ((from.Row + 1).Equals(to.Row) && color.Equals(ChessColor.While))
+            {
+                if (this.CheckOtherFigureIfValid(board, to, otherColor))
+                {
+                    return;
+                }
+            }
+            else if ((from.Row - 1).Equals(to.Row) && color.Equals(ChessColor.Black))
+            {
+                if (this.CheckOtherFigureIfValid(board, to, otherColor))
+                {
+                    return;
+                }
+            }
+
             var fm = new FigureMoving(figure, move);
-            throw new NotImplementedException();
+
+            throw new InvalidOperationException(PownsInvalidMove);
         }
 
         private bool CheckOtherFigureIfValid(IBoard board, Position to, ChessColor color)
@@ -79,10 +117,10 @@
             var otherFigure = board.GetFigureAtPosition(to);
             if (!(otherFigure is null) && otherFigure.Color.Equals(color))
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         private bool CheckDiagonalMove(Position from, Position to) => ((from.Col + 1).Equals(to.Col) || (from.Col - 1).Equals(to.Col));

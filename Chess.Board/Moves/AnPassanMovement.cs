@@ -1,4 +1,4 @@
-﻿namespace Chess.Board.Figures
+﻿namespace Chess.Board.Moves
 {
     using Chess.Board.Contracts;
     using Chess.Board.Figures.Contracts;
@@ -30,7 +30,7 @@
 
         public void ValidateMove(IFigure figure, IBoard board, Move move)
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

@@ -7,6 +7,6 @@
     {
         public ChessColor Color { get; init; }
 
-        public ICollection<IMoves> Move();
+        public ICollection<IMoves> Move(IMovementStrategy movementStrategy, FigureEnum figure);
     }
 }
