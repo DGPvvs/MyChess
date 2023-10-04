@@ -29,8 +29,9 @@
             public const string FromPositionIsEmpty = "Позиция {0}{1} е празна!";
             public const string AlresdyHaveYourFigureAtPosition = "Вече има ваша фигура на позиция {0}{1}!";
             public const string ThisFigureIsNotYours = "Фигурата на позиция {0}{1} не е ваша!";
-            public const string PownsNenNotMoveBackwards = "Пешките не могат да се движат назад!";
-            public const string PownsInvalidMove = "Пешките не могат да се движат в тази посока!";
+            public const string PownsNenNotMoveBackwards = "Пешката не може да се движи назад!";
+            public const string PownsInvalidMove = "Пешката не може да се движи в тази посока!";
+            public const string BishopInvalidMove = "Офицерът не може да се движи в тази посока!";
         }
 
         public static class Fen

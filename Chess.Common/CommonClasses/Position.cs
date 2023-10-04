@@ -3,7 +3,7 @@
     using static Chess.Common.Constants.GlobalConstants.ErrorMessages;
     using static Chess.Common.Constants.GlobalConstants.BoardConstants;
 
-    public class Position
+    public class Position : IComparable<Position>
     {
         private readonly int row;
         private readonly char col;
@@ -46,6 +46,18 @@
             {
                 throw new IndexOutOfRangeException(OutOfRangeCol);
             }
+        }
+
+        public int CompareTo(Position? other)
+        {
+            int comp = this.Row.CompareTo(other.Row);
+
+            if (comp == 0)
+            {
+                comp = this.Col.CompareTo(other.Col);
+            }
+
+            return comp;
         }
     }
 }

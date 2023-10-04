@@ -18,5 +18,7 @@
         public IFigure GetFigureAtPosition(Position position);
 
         public void MoveFigureAtPosition(IFigure figure, Position from, Position to);
+
+        public bool ValidPosition(Position at);
     }
 }

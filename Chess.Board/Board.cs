@@ -75,6 +75,15 @@
             this.board[point.Row, point.Col] = null;
         }
 
+        public bool ValidPosition(Position at)
+        {
+            Point point = this.CalculatePosition(at);
+
+            bool result = point.Row >= 0 && point.Col >= 0;
+            result = result && point.Row < this.totalRows && point.Col < totalCols;
+            return result;
+        }
+
         private Point CalculatePosition(Position position)
         {
             Position.CheckIfValid(position);

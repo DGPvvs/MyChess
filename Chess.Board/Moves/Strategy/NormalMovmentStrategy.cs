@@ -9,7 +9,9 @@
         private Dictionary<FigureEnum, IList<IMoves>> moves = new Dictionary<FigureEnum, IList<IMoves>>()
         {
             { FigureEnum.BlackPawn, new List<IMoves>(){ new NormalPownMove(), new AnPassanMovement() } },
-            { FigureEnum.WhitePawn, new List<IMoves>(){ new NormalPownMove(), new AnPassanMovement() } }
+            { FigureEnum.WhitePawn, new List<IMoves>(){ new NormalPownMove(), new AnPassanMovement() } },
+            { FigureEnum.BlackBishop, new List<IMoves>(){ new NormalBishopMovement() } },
+            { FigureEnum.WhiteBishop, new List<IMoves>(){ new NormalBishopMovement() } },
         };
 
         public IList<IMoves> GetMoves(FigureEnum figure) => this.moves[figure];
